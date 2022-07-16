@@ -5,20 +5,32 @@ const User = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    displayName: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING,
-    image: DataTypes.STRING,
+    displayName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },{
     timestamps: false,
     tableName: 'Users',
   });
 
-  // User.associate = (models) => {
-  //   User.hasMany(models.BlogPost, {
-  //     foreignKey: 'userId', as: 'blogposts'
-  //   });
-  // };
+  User.associate = (models) => {
+    User.hasMany(models.BlogPost, {
+      foreignKey: 'userId', as: 'blogposts'
+    });
+  };
 
   return User;
 };
