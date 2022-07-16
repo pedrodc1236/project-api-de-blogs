@@ -2,6 +2,9 @@ const express = require('express');
 
 // ...
 
+// Abaixo esta o middleware de autenticação
+// const middlewares = require('./Middlewares');
+
 const loginRouter = require('./routes/loginRoute');
 const userRouter = require('./routes/userRoute');
 
