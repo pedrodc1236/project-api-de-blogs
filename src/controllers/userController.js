@@ -14,7 +14,7 @@ const create = async (req, res) => {
 
 const getAll = async (req, res) => {
   const users = await userService.getAll();
-
+  
   res.status(200).json(users);
 };
 
