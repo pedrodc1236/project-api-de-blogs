@@ -26,6 +26,24 @@ const validateCategories = async (categoryIds) => {
   return {};
 };
 
+const validateBodyUpdate = async (body) => {
+  const { title, content } = body;
+  if (!title || !content) return { code: 400, message: 'Some required fields are missing' };
+  
+  return {};
+};
+
+const validateUserAuthorization = async (id, email) => {
+  const userLogged = await User.findOne({ where: { email } });
+  const userId = userLogged.dataValues.id;
+  const userPost = await BlogPost.findByPk(id);
+  const userIdPost = userPost.dataValues.id;
+
+  if (userId !== userIdPost) return { code: 401, message: 'Unauthorized user' };
+
+  return {};
+};
+
 const createPost = async (reqBody, email) => {
   const { title, content, categoryIds } = reqBody;
 
@@ -74,8 +92,32 @@ const getById = async (id) => {
   return post;
 };
 
+const update = async (id, reqBody, email) => {
+  const validate = await validateBodyUpdate(reqBody);
+  if (validate.message) return validate;
+  const validateTwo = await validateUserAuthorization(id, email);
+  if (validateTwo.message) return validateTwo;
+
+  const { title, content } = reqBody;
+
+  const updatePost = await BlogPost.update({ title, content }, { where: { id } });
+  console.log(updatePost);
+  if (!updatePost) return { code: 400, message: 'This post does not exist!' };
+
+  const post = await BlogPost.findOne({
+    where: { id },
+    include: [
+      { model: User, as: 'user', attributes: { exclude: ['password'] } },
+      { model: Category, as: 'categories', through: { attributes: [] } },
+    ],
+  });
+
+  return post;
+};
+
 module.exports = {
   createPost,
   getAll,
   getById,
+  update,
 };
