@@ -7,5 +7,6 @@ const blogPostRouter = Router();
 
 blogPostRouter.post('/', middleware.auth, blogPostController.createPost);
 blogPostRouter.get('/', middleware.auth, blogPostController.getAll);
+blogPostRouter.get('/:id', middleware.auth, blogPostController.getById);
 
 module.exports = blogPostRouter;
