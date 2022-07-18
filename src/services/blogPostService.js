@@ -35,9 +35,10 @@ const validateBodyUpdate = async (body) => {
 
 const validateUserAuthorization = async (id, email) => {
   const userLogged = await User.findOne({ where: { email } });
-  const userId = userLogged.dataValues.id;
+  const userId = userLogged.id;
   const userPost = await BlogPost.findByPk(id);
-  const userIdPost = userPost.dataValues.id;
+  if (!userPost) return { code: 404, message: 'Post does not exist' };
+  const userIdPost = userPost.userId;
 
   if (userId !== userIdPost) return { code: 401, message: 'Unauthorized user' };
 
@@ -100,9 +101,7 @@ const update = async (id, reqBody, email) => {
 
   const { title, content } = reqBody;
 
-  const updatePost = await BlogPost.update({ title, content }, { where: { id } });
-  console.log(updatePost);
-  if (!updatePost) return { code: 400, message: 'This post does not exist!' };
+  await BlogPost.update({ title, content }, { where: { id } });
 
   const post = await BlogPost.findOne({
     where: { id },
@@ -115,9 +114,22 @@ const update = async (id, reqBody, email) => {
   return post;
 };
 
+const remove = async (id, email) => {
+  const validate = await validateUserAuthorization(id, email);
+  if (validate.message) return validate;
+
+  const removePost = await BlogPost.destroy({ where: { id } });
+  console.log(removePost);
+
+  if (!removePost) return { code: 404, message: 'Post does not exist' };
+
+  return true;
+};
+
 module.exports = {
   createPost,
   getAll,
   getById,
   update,
+  remove,
 };

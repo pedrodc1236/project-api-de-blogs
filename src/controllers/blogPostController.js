@@ -39,9 +39,21 @@ const update = async (req, res) => {
   res.status(200).json(updatePost);
 };
 
+const remove = async (req, res) => {
+  const { id } = req.params;
+  const { email } = req.user;
+
+  const removePost = await blogPostService.remove(id, email);
+
+  if (removePost.message) return res.status(removePost.code).json({ message: removePost.message });
+
+  res.status(204).end();
+};
+
 module.exports = {
   createPost,
   getAll,
   getById,
   update,
+  remove,
 };
