@@ -58,8 +58,17 @@ const getById = async (id) => {
   return users;
 };
 
+const removeMe = async (email) => {
+  const userMe = await User.findOne({ where: { email } });
+  const { id } = userMe;
+  await User.destroy({ where: { id } });
+
+  return true;
+};
+
 module.exports = {
   create,
   getAll,
   getById,
+  removeMe,
 };
