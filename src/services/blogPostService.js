@@ -1,3 +1,4 @@
+const { Op } = require('sequelize');
 const { BlogPost, User, PostCategory, Category } = require('../database/models');
 
 const validateBody = async ({ title, content, categoryIds }) => {
@@ -126,10 +127,32 @@ const remove = async (id, email) => {
   return true;
 };
 
+const query = async (q) => {
+  const post = await BlogPost.findAll({
+    where: {
+      [Op.or]: [
+        {
+          title: {
+            [Op.like]: `%${q}%`,
+          },
+        },
+        {
+          content: {
+            [Op.like]: `%${q}%`,
+          },
+        },
+      ],
+    },
+  });
+  const postIds = post.map(({ id }) => id);
+  return postIds;
+};
+
 module.exports = {
   createPost,
   getAll,
   getById,
   update,
   remove,
+  query,
 };

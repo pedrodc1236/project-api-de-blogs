@@ -50,10 +50,18 @@ const remove = async (req, res) => {
   res.status(204).end();
 };
 
+const query = async (req, res) => {
+  const { q } = req.query;
+  const queryPostIds = await blogPostService.query(q);
+  const posts = await Promise.all(queryPostIds.map((id) => blogPostService.getById(id)));
+  res.status(200).json(posts);
+};
+
 module.exports = {
   createPost,
   getAll,
   getById,
   update,
   remove,
+  query,
 };
