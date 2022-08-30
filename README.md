@@ -12,12 +12,6 @@
 </div>
 <br/> <br/>
 
-<div align="center">
-
-![figure](BrazucaBrowsing.png)
-
-</div>
-
 <h2 align="left"> Sobre: </h2>
 
 <p> Nesse projeto foi desenvolvida uma aplicação em Node.js usando o pacote sequelize para fazer um CRUD de posts. Onde foi criado endpoints que foram conectados ao banco de dados seguindo os princípios do REST.
@@ -28,22 +22,15 @@ Para a autenticação dos usuários foi utilizado o método JWT.
 
 Amei trabalhar utilizando Sequelize, facilitou bastante o trabalho e deixou o código mais limpo (sem queries), oque torna a manutenção mais fácil. </p>
 
+## Foram aplicadas as seguintes tecnologias no projeto:
 
-
-
-
-
-Foram aplicadas as seguintes tecnologias no projeto:
-
-▪ Node.js
-▪ Sequelize/CLI
-▪ JWT (JSON Web Token)
-▪ Express.js
-▪ Arquitetura de Software
-▪ Nodemon
-▪ Docker
-▪ CRUD
-
-Node
-
-
+- Node.js;
+- Express.js;
+- JWT;
+- Sequelize/CLI
+- MySql;
+- Arquitetura de Software
+- Sequelize/CLI
+- Nodemon
+- Docker
+- CRUD
