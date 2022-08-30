@@ -1,4 +1,5 @@
-<h1>Projeto API de Blogs<h1>
+<h1 Projeto API de Blogs <h1>
+ 
 
 - Sequelize biblioteca ORM, Autenticação, Associations e JWT (JSON Web Token).
 
