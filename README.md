@@ -16,3 +16,5 @@ Foram aplicadas as seguintes tecnologias no projeto:
 ▪ Nodemon
 ▪ Docker
 ▪ CRUD
+
+NodeJS Express.js JWT Sequelize MySQL Swagger
