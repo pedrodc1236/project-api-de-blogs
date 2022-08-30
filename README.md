@@ -1,4 +1,6 @@
-Projeto API de Blogs - Sequelize biblioteca ORM, Autenticação, Associations e JWT (JSON Web Token).
+<h1>Projeto API de Blogs<h1>
+
+- Sequelize biblioteca ORM, Autenticação, Associations e JWT (JSON Web Token).
 
 Nesse projeto foi desenvolvida uma aplicação em Node.js usando o pacote sequelize para fazer um CRUD de posts. Onde foi criado endpoints que foram conectados ao banco de dados seguindo os princípios do REST.
 
