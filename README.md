@@ -17,4 +17,6 @@ Foram aplicadas as seguintes tecnologias no projeto:
 ▪ Docker
 ▪ CRUD
 
-NodeJS Express.js JWT Sequelize MySQL Swagger
+Node
+
+<h1> oi <h1>
