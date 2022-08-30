@@ -34,3 +34,22 @@ Amei trabalhar utilizando Sequelize, facilitou bastante o trabalho e deixou o c√
 - Nodemon
 - Docker
 - CRUD
+
+## Rodando o projeto localmente:
+
+```bash
+git@github.com:pedrodc1236/project-api-de-blogs.git
+cd project-api-de-blogs/
+npm install
+npm start
+```
+
+Usando docker
+
+```bash
+docker-compose up -d
+docker exec -it <container node> bash
+npm install
+npm run db
+npm start 
+```
