@@ -24,11 +24,11 @@ Amei trabalhar utilizando Sequelize, facilitou bastante o trabalho e deixou o c√
 
 ## Foram aplicadas as seguintes tecnologias no projeto:
 
-- Node.js;
-- Express.js;
-- JWT;
+- Node.js
+- Express.js
+- JWT
 - Sequelize/CLI
-- MySql;
+- MySql
 - Arquitetura de Software
 - Sequelize/CLI
 - Nodemon
