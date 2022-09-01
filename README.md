@@ -1,6 +1,6 @@
 <h1 align="center"> Projeto API de Blogs 💻 </h1>
  
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
  
  <div align="center">
  ![TypeScript](https://img.shields.io/badge/Sequelize-52B0E7?style=for-the-badge&logo=Sequelize&logoColor=white)
