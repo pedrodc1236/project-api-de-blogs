@@ -71,10 +71,10 @@ Após cada um dos passos, haverá um exemplo do comando a ser digitado para faze
 
 ## Foram aplicadas as seguintes tecnologias no projeto:
 
+- TypeScript
 - Node.js
 - Express.js
 - JWT
-- Sequelize/CLI
 - MySql
 - Arquitetura de Software
 - Sequelize/CLI
