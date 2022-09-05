@@ -38,7 +38,7 @@ Amei trabalhar utilizando Sequelize, facilitou bastante o trabalho e deixou o c√
 ## Rodando o projeto localmente:
 
 ```bash
-git@github.com:pedrodc1236/project-api-de-blogs.git
+git clone git@github.com:pedrodc1236/project-api-de-blogs.git
 cd project-api-de-blogs/
 npm install
 npm start
